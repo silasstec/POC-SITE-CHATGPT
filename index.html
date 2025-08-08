@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auritas‑Inspired POC</title>
+  <!-- The main stylesheet contains all colour and typography definitions -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Top information bar replicating the small strip on Auritas showing contact info -->
+  <div class="top-bar">
+    <div class="container">
+      <span>+1 407 123 4567</span>
+      <span>info@example.com</span>
+      <span>Mon – Fri: 9:00AM – 6:00PM EST</span>
+    </div>
+  </div>
+  <!-- Site header with logo and navigation. The mobile toggle appears on smaller screens. -->
+  <header>
+    <div class="container">
+      <div class="logo">POC Site</div>
+      <nav id="nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- The button below becomes visible on smaller screens to toggle the mobile menu -->
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+  <!-- Hero section: a full viewport height area with a background image, overlay and call to action -->
+  <section class="hero" id="home">
+    <!-- A semi‑transparent overlay sits on top of the background image to improve text contrast -->
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Driving Innovation, Empowering Transformation</h1>
+      <p>Delivering the fastest path to value for your digital transformation.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Book a Meeting</a>
+        <a href="#services" class="btn secondary">Explore Services</a>
+      </div>
+    </div>
+  </section>
+  <!-- Services section summarising the high‑level offerings of the company -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <p>We provide a comprehensive suite of data management and digital transformation solutions.</p>
+      <div class="service-grid">
+        <div class="service-item">
+          <div class="service-icon">📦</div>
+          <h3>Data Management</h3>
+          <p>Streamline your data lifecycle from archiving to governance.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">⚙️</div>
+          <h3>Process Optimization</h3>
+          <p>Optimize your business processes for efficiency and agility.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">💡</div>
+          <h3>Product Innovation</h3>
+          <p>Innovate with purpose‑built solutions tailored to your needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About section describing the organisation -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        We are leaders in data and process optimization, empowering organisations to
+        achieve measurable results. Inspired by the structure and clarity of
+        Auritas’ website, this proof‑of‑concept demonstrates how modern design
+        principles can be combined with accessible layouts.
+      </p>
+    </div>
+  </section>
+  <!-- Contact section with a simple form; the form submission is handled by JavaScript -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">Submit</button>
+      </form>
+    </div>
+  </section>
+  <!-- Footer at the bottom of every page -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 POC Site. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Load scripts at the end of the body to improve initial page rendering -->
+  <script src="js/script.js"></script>
+</body>
+</html>
