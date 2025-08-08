@@ -1,0 +1,311 @@
+/*
+ * style.css
+ *
+ * This stylesheet defines the colour palette, typography and layout used across
+ * the proof‑of‑concept site. The design takes inspiration from the Auritas
+ * corporate website by combining clean typography with contrasting colours and
+ * generous spacing. The variables defined at the top make it easy to adjust
+ * the look and feel later on.
+ */
+
+/* Import a modern sans‑serif typeface similar to the one used on Auritas */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* CSS custom properties for colours and sizing */
+:root {
+  --primary-color: #fec503;          /* warm yellow for call‑to‑action buttons */
+  --secondary-color: #39364e;        /* dark blue/grey used for text and backgrounds */
+  --text-color: #696969;             /* neutral grey for body text */
+  --bg-color: #ffffff;               /* default page background */
+  --light-gray: #f7f7f7;             /* subtle grey for alternating section backgrounds */
+  --max-width: 1200px;               /* restrict the width of content on large screens */
+}
+
+/* Reset some default browser styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--bg-color);
+}
+
+/* Utility container to wrap page sections */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Top bar with contact info */
+.top-bar {
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+}
+.top-bar .container span {
+  margin-right: 1rem;
+}
+
+/* Header and navigation */
+header {
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  margin-left: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Mobile navigation toggle button */
+.nav-toggle {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  width: 25px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  display: block;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { top: 8px; }
+
+/* Hero section styling */
+.hero {
+  position: relative;
+  height: 80vh;
+  /* Replace the external background image with a subtle gradient so the
+     project remains completely self‑contained.  This also simplifies
+     deployment to GitHub since binary assets are not required in the
+     repository.  The gradient fades from the dark accent colour
+     to a slightly lighter shade, echoing the palette found on the
+     Auritas site. */
+  background: linear-gradient(180deg, var(--secondary-color) 0%, #524f73 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(57, 54, 78, 0.6);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.hero-content p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transition: 0.2s;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+.btn.primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.btn.primary:hover {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: #fff;
+}
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn.secondary:hover {
+  background-color: #fff;
+  color: var(--secondary-color);
+}
+
+/* Section spacing */
+section {
+  padding: 4rem 0;
+}
+
+/* Services section */
+.services {
+  background-color: var(--light-gray);
+}
+.services h2,
+.about h2,
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+.services p,
+.about p {
+  max-width: 800px;
+}
+.services .service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.services .service-item {
+  flex: 1 1 calc(33.333% - 2rem);
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Contact form */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-color);
+    width: 200px;
+    border: 1px solid #ddd;
+    display: none;
+  }
+  nav ul.active {
+    display: block;
+  }
+  nav li {
+    margin: 0;
+    padding: 1rem;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  /* Stack service items on small screens */
+  .services .service-item {
+    flex: 1 1 100%;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero {
+    height: 70vh;
+  }
+}
+
+
+
+
+/* Scroll reveal animations
+ * Elements with the class `scroll-reveal` are initially hidden and will fade
+ * up into view when they enter the viewport.  The `show` class is added
+ * dynamically via JavaScript using an IntersectionObserver.
+ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
